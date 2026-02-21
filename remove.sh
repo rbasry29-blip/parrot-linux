@@ -62,7 +62,7 @@ if [ -d "$ROOTFS_DIR" ]; then
     warn "Rootfs directory found and it is going to remove"
     found_rootfs=1
 elif [ -e "$ROOTFS_ARCHIVE" ]; then
-    waen "Rootfs archive found and it is going to remove"
+    warn "Rootfs archive found and it is going to remove"
     found_rootfs=1
 else
     warn "No rootfs found"
