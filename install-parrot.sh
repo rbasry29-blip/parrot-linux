@@ -239,7 +239,7 @@ r='\033[0m'
     printf "${b}▌ ${c}█▀▀▘█▄▄█ █▄▄▀ █▄▄▀ █  █  █   ${b}▐\n"
     printf "${b}▌ ${c}▀   ▀  ▀ ▀  ▀ ▀  ▀ ▀▀▀▀  ▀   ${b}▐\n"
     printf "${b}▌${r}                              ${b}▐\n"
-    printf "${b}▌${c}Parrot:${g} A unique installer     ${b}▐\n"
+    printf "${b}▌${c}Parrot:${g} A unique installer    ${b}▐\n"
     printf "${b}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${r}\n"
 }
 
