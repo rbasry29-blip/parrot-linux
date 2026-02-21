@@ -1,7 +1,18 @@
 #!/data/data/com.termux/files/usr/bin/bash -e
 # parrot-remove.sh
 # Removes Parrot launcher and rootfs (archive or directory) — checks: archive (-e), dir (-d), launcher (-e)
-
+print_banner() {
+b='\033[0;34m'
+c='\033[1;36m'                                                   g='\033[1;32m'
+r='\033[0m'
+                                                                     printf "${b}▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜\n"
+    printf "${b}▌ ${c}█▀▀▖█▀▀█ █▀▀█ █▀▀█ █▀▀█ ▀█▀  ${b}▐\n"
+    printf "${b}▌ ${c}█▀▀▘█▄▄█ █▄▄▀ █▄▄▀ █  █  █   ${b}▐\n"
+    printf "${b}▌ ${c}▀   ▀  ▀ ▀  ▀ ▀  ▀ ▀▀▀▀  ▀   ${b}▐\n"
+    printf "${b}▌${r}                              ${b}▐\n"
+    printf "${b}▌${c}Parrot:${g} A unique installer    ${b}▐\n"
+    printf "${b}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${r}\n"
+print_banner
 # Colors
 red='\033[1;31m'
 green='\033[1;32m'
