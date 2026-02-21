@@ -171,6 +171,7 @@ cmdline="proot \
         -b /dev \
         -b /proc \
         -b /sdcard \
+        -b $PREFIX/tmp:/tmp \
         -b ${CHROOT}${home}:/dev/shm \
         -w ${home} \
            /usr/bin/env -i \
