@@ -290,6 +290,8 @@ clear
 # ------------------ Main flow ------------------
 cd "$HOME"
 print_banner
+info "Copyright (c) 2026 rbasry29-blip"
+sleep 2
 get_arch
 set_strings
 prepare_fs
