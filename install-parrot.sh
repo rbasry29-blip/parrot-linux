@@ -197,7 +197,7 @@ unset LD_PRELOAD
 
 user="parrot"
 home="/home/\$user"
-start="sudo -u parrot /bin/bash"
+start="/bin/bash"
 
 # if parrot user not present, run as root
 if ! grep -q "^parrot:" "${CHROOT}/etc/passwd" 2>/dev/null || [[ "\$#" != "0" && ("\$1" == "-r" || "\$1" == "-R") ]]; then
