@@ -286,12 +286,27 @@ clear
     printf "${b}▌${c}Parrot:${g} A unique installer    ${b}▐\n"
     printf "${b}▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟${r}\n"
 }
+check_internet() {
+    TARGET_URL="https://github.com/rbasry29-blip/parrot-linux"
 
+    if command -v curl >/dev/null 2>&1; then
+        curl -Is --connect-timeout 5 "$TARGET_URL" >/dev/null 2>&1
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q --spider --timeout=5 "$TARGET_URL"
+    else
+        warn "Sorry, wget or curl is required for verification."
+        exit 1
+    fi
+
+    if [ $? -ne 0 ]; then
+        warn "Sorry, internet connection is needed."
+        exit 1
+    fi
+}
 # ------------------ Main flow ------------------
 cd "$HOME"
 print_banner
-info "Copyright (c) 2026 rbasry29-blip"
-sleep 2
+check_internet
 get_arch
 set_strings
 prepare_fs
