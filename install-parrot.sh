@@ -186,11 +186,11 @@ extract_rootfs() {
 
 # ------------------ Launcher ------------------
 create_launcher() {
-    NH_LAUNCHER="${PREFIX}/bin/parrot"
-    NH_SHORTCUT="${PREFIX}/bin/p"
+    PH_LAUNCHER="${PREFIX}/bin/parrot"
+    PH_SHORTCUT="${PREFIX}/bin/p"
 
     # Generate launcher with current CHROOT and PREFIX substituted now.
-    cat > "${NH_LAUNCHER}" <<-EOF
+    cat > "${PH_LAUNCHER}" <<-EOF
 #!/data/data/com.termux/files/usr/bin/bash -e
 cd \$HOME
 unset LD_PRELOAD
@@ -234,8 +234,8 @@ else
 fi
 EOF
 
-    chmod 700 "${NH_LAUNCHER}" || warn "Failed to chmod launcher"
-    ln -sf "${NH_LAUNCHER}" "${NH_SHORTCUT}" || warn "Failed to symlink shortcut"
+    chmod 700 "${PH_LAUNCHER}" || warn "Failed to chmod launcher"
+    ln -sf "${PH_LAUNCHER}" "${PH_SHORTCUT}" || warn "Failed to symlink shortcut"
     info "Launcher created: parrot"
 }
 
