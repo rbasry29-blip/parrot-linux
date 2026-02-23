@@ -328,6 +328,7 @@ check_internet() {
 # ------------------ Main flow ------------------
 cd "$HOME"
 print_banner
+info "Copyright (c) 2026 rbasry29-blip"
 check_internet
 get_arch
 set_strings
