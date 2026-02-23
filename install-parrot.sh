@@ -150,7 +150,29 @@ get_rootfs() {
     fi
     info "Download finished: ${IMAGE_NAME}"
 }
+check_rootfs_integrity() {
+    info "Checking integrity of rootfs"
 
+    # file exists
+    [ -f "${IMAGE_NAME}" ] || { warn "Rootfs file missing!"; exit 1; }
+
+    # not empty
+    [ -s "${IMAGE_NAME}" ] || { warn "Rootfs file empty!"; exit 1; }
+
+    # xz test
+    xz -t "${IMAGE_NAME}" 2>/dev/null || {
+        warn "XZ integrity test failed!"
+        exit 1
+    }
+
+    # tar test
+    tar -tf "${IMAGE_NAME}" >/dev/null 2>&1 || {
+        warn "Archive structure invalid!"
+        exit 1
+    }
+
+    info "Rootfs integrity OK"
+}
 # ------------------ Extract ------------------
 extract_rootfs() {
     if [ -z "${KEEP_CHROOT}" ]; then
@@ -312,6 +334,7 @@ set_strings
 prepare_fs
 check_dependencies
 get_rootfs
+check_rootfs_integrity
 extract_rootfs
 
 # make sure a parrot user/home exists to avoid proot warnings
