@@ -319,8 +319,15 @@ check_internet() {
     if [ $? -ne 0 ]; then
         warn "Sorry, internet connection is needed."
         exit 1
-    fi
+    fi 
 }
+
+config(){
+parrot echo "deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware" | tee /data/data/com.termux/files/home/parrot.list
+parrot echo "deb https://deb.parrot.sh/parrot echo-security main contrib non-free non-free-firmware" | tee -a /data/data/com.termux/files/home/parrot.list
+parrot echo "deb https://deb.parrot.sh/parrot echo-backports main contrib non-free non-free-firmware" | tee -a /data/data/com.termux/files/home/parrot.list
+}
+
 # ------------------ Main flow ------------------
 cd "$HOME"
 print_banner
@@ -340,6 +347,10 @@ create_launcher
 cleanup
 
 info "Configuring Parrot for Termux ..."
+info "Configuring parrot"
+config
+
+
 fix_profile_bash
 fix_uid
 
